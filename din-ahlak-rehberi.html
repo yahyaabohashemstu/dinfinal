@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>الدين والأخلاق • Din ve Ahlak Rehberi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===================== THEME TOKENS ===================== */
+:root{
+  --bg:#f4f6f1; --bg-grad1:#e7f3ec; --bg-grad2:#faf3e2;
+  --card:#ffffff; --ink:#1c2620; --muted:#5f6b66; --line:#e3e9e3;
+  --tr:#e30a17; --tr-soft:#fff4f4; --tr-tint:#fdf6f6;
+  --ar:#0e8a55; --ar-soft:#eafaf1; --ar-tint:#f4fbf7;
+  --gold:#c98a07; --gold-soft:#fff6e2; --gold-line:#e7c66a;
+  --kw-bg:#fff0c9; --kw-fg:#8a5b00; --kw-line:#e8b94d;
+  --accent:#0e8a55; --accent-soft:#e7f6ee;
+  --good:#15a34a; --bad:#dc2626;
+  --shadow:0 14px 34px -14px rgba(20,50,35,.22);
+  --shadow-sm:0 5px 16px -7px rgba(20,50,35,.22);
+  --radius:20px;
+  --c1:#10b981; --c2:#0ea5e9; --c3:#e0900a; --c4:#8b5cf6; --c5:#ef4444; --c6:#14b8a6;
+  --lat:"Poppins","Segoe UI",system-ui,sans-serif;
+  --ara:"Cairo","Tajawal","Segoe UI",Tahoma,sans-serif;
+  --quran:"Amiri","Cairo",serif;
+}
+body.dark{
+  --bg:#0d1410; --bg-grad1:#11231a; --bg-grad2:#1f1a10;
+  --card:#13201a; --ink:#e7efe9; --muted:#94a39a; --line:#243a2e;
+  --tr:#ff5d66; --tr-soft:#2a1518; --tr-tint:#1a1614;
+  --ar:#33c98c; --ar-soft:#0f2a20; --ar-tint:#13211a;
+  --gold:#f5b53d; --gold-soft:#2a2110; --gold-line:#5a4516;
+  --kw-bg:#3a2e0f; --kw-fg:#ffd569; --kw-line:#6a5316;
+  --accent:#33c98c; --accent-soft:#10271d;
+  --good:#34d399; --bad:#f87171;
+  --shadow:0 18px 44px -18px rgba(0,0,0,.65);
+  --shadow-sm:0 7px 20px -9px rgba(0,0,0,.6);
+  --c1:#34d399; --c2:#38bdf8; --c3:#fbbf24; --c4:#a78bfa; --c5:#fb7185; --c6:#2dd4bf;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:100px}
+body{
+  margin:0; font-family:var(--ara); color:var(--ink); line-height:1.75;
+  background:
+    radial-gradient(1100px 560px at 88% -8%, var(--bg-grad1), transparent 60%),
+    radial-gradient(900px 520px at 8% 2%, var(--bg-grad2), transparent 55%),
+    var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+.lat{font-family:var(--lat)}
+
+/* ===================== HERO ===================== */
+.hero{max-width:1140px; margin:0 auto; padding:38px 22px 6px; text-align:center; position:relative}
+.crown{font-size:50px; line-height:1; filter:drop-shadow(0 7px 12px rgba(0,0,0,.18))}
+.basmala{font-family:var(--quran); font-size:1.45rem; color:var(--gold); margin:6px 0 2px; font-weight:700; letter-spacing:.3px}
+.hero h1{margin:.2em 0 .12em; font-size:clamp(1.7rem,4.7vw,2.95rem); font-weight:900; letter-spacing:-.5px;
+  background:linear-gradient(100deg,var(--c1),var(--c6) 45%,var(--c3)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.hero .tr-title{font-family:var(--lat); font-weight:700; font-size:clamp(1rem,2.4vw,1.4rem); color:var(--muted); letter-spacing:.3px}
+.hero p.lead{max-width:700px; margin:14px auto 0; color:var(--muted); font-size:1.06rem}
+.hero .lead b.r{color:var(--ar)} .hero .lead b.l{color:var(--tr)}
+
+/* how-to */
+.howto{max-width:1140px; margin:22px auto 6px; padding:0 22px}
+.howto-inner{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; box-shadow:var(--shadow-sm)}
+.howto h3{margin:0 0 12px; font-size:1.06rem; display:flex; align-items:center; gap:8px}
+.howto ul{margin:0; padding:0; list-style:none; display:grid; gap:9px; grid-template-columns:repeat(auto-fit,minmax(245px,1fr))}
+.howto li{display:flex; gap:10px; align-items:flex-start; font-size:.95rem; color:var(--ink)}
+.howto li .dot{flex:none; width:26px; height:26px; border-radius:9px; display:grid; place-items:center; font-size:.95rem;
+  background:var(--accent-soft); color:var(--accent); font-weight:800}
+
+/* ===================== STICKY NAV ===================== */
+.nav{position:sticky; top:0; z-index:50; margin-top:18px;
+  backdrop-filter:saturate(160%) blur(10px); background:color-mix(in srgb,var(--card) 84%, transparent);
+  border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.nav-in{max-width:1140px; margin:0 auto; padding:10px 18px; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.brand{font-weight:800; font-size:.95rem; display:flex; align-items:center; gap:7px; white-space:nowrap}
+.brand .lat{font-size:.8rem; color:var(--muted)}
+.pills{display:flex; gap:6px; flex-wrap:wrap; flex:1; justify-content:center}
+.pill{border:1px solid var(--line); background:var(--card); color:var(--muted); padding:6px 11px; border-radius:999px;
+  font-size:.84rem; font-weight:700; cursor:pointer; text-decoration:none; transition:.18s; display:flex; gap:6px; align-items:center}
+.pill:hover{color:var(--ink); border-color:var(--accent)}
+.pill.active{color:#fff; border-color:transparent; background:var(--accent); box-shadow:var(--shadow-sm)}
+.pill .n{width:18px; height:18px; border-radius:6px; background:color-mix(in srgb,var(--accent) 16%,transparent);
+  display:grid; place-items:center; font-size:.72rem; color:var(--accent); font-family:var(--lat)}
+.pill.active .n{background:rgba(255,255,255,.28); color:#fff}
+.tools{display:flex; gap:7px; align-items:center}
+.tbtn{border:1px solid var(--line); background:var(--card); color:var(--ink); width:40px; height:40px; border-radius:12px;
+  display:grid; place-items:center; cursor:pointer; font-size:1.05rem; transition:.18s}
+.tbtn:hover{border-color:var(--accent); transform:translateY(-1px)}
+.tbtn.on{background:var(--accent); color:#fff; border-color:transparent}
+.tbtn.danger:hover{border-color:var(--tr); color:var(--tr)}
+
+/* progress */
+.progress-wrap{max-width:1140px; margin:14px auto 0; padding:0 22px; display:flex; align-items:center; gap:12px}
+.bar{flex:1; height:12px; background:var(--line); border-radius:999px; overflow:hidden; position:relative}
+.bar i{position:absolute; inset:0 auto 0 0; width:0%; border-radius:999px;
+  background:linear-gradient(90deg,var(--c1),var(--c6) 60%,var(--c3)); transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.progress-wrap b{font-weight:800; font-size:.92rem; white-space:nowrap}
+.progress-wrap .lat{color:var(--muted); font-weight:600; font-size:.8rem}
+
+/* ===================== SECTIONS ===================== */
+main{max-width:1140px; margin:0 auto; padding:10px 22px 40px}
+.section{margin-top:42px; scroll-margin-top:100px}
+.sec-head{display:flex; align-items:center; gap:14px; margin-bottom:6px}
+.sec-emoji{width:56px; height:56px; flex:none; border-radius:16px; display:grid; place-items:center; font-size:1.75rem;
+  background:color-mix(in srgb,var(--sc) 16%,transparent); box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--sc) 38%,transparent)}
+.sec-head h2{margin:0; font-size:1.5rem; font-weight:900; display:flex; flex-wrap:wrap; align-items:baseline; gap:10px}
+.sec-head h2 .lat{font-size:1rem; color:var(--sc); font-weight:700}
+.sec-num{font-family:var(--lat); font-weight:800; color:var(--sc); font-size:.82rem; letter-spacing:1px; display:flex; align-items:center; gap:8px}
+.q-badge{font-family:var(--ara); background:color-mix(in srgb,var(--sc) 15%,transparent); color:var(--sc);
+  border-radius:999px; padding:1px 9px; font-size:.74rem; font-weight:800; letter-spacing:0}
+.star-imp{background:var(--gold-soft); color:var(--gold); border:1px solid var(--gold-line); border-radius:999px;
+  padding:1px 9px; font-size:.74rem; font-weight:800; letter-spacing:0}
+.sec-intro{color:var(--muted); margin:2px 0 16px; padding-inline-start:70px; font-size:.99rem}
+@media(max-width:560px){.sec-intro{padding-inline-start:0}}
+
+/* ===================== CARD ===================== */
+.card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+  overflow:hidden; margin-bottom:20px; transition:.25s}
+.card.learned{box-shadow:0 0 0 2px var(--good), var(--shadow)}
+.card-top{display:flex; align-items:center; gap:12px; padding:14px 18px; border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--sc) 8%,transparent),transparent)}
+.badge-n{width:42px; height:42px; flex:none; border-radius:13px; background:var(--sc); color:#fff; font-family:var(--lat);
+  font-weight:800; display:grid; place-items:center; font-size:1.1rem; box-shadow:var(--shadow-sm)}
+.card-titles{flex:1; min-width:0}
+.card-titles .tt{display:block; font-family:var(--lat); font-weight:700; font-size:1.14rem; color:var(--ink); line-height:1.3}
+.card-titles .ta{display:block; font-size:.93rem; color:var(--muted); font-weight:700}
+.learned-flag{flex:none; font-size:.78rem; font-weight:800; color:var(--good); display:none; align-items:center; gap:5px}
+.card.learned .learned-flag{display:flex}
+
+/* block label inside a card */
+.block-lbl{display:flex; align-items:center; gap:8px; padding:13px 18px 4px; font-weight:800; font-size:.96rem; color:var(--sc)}
+.block-lbl .lat{font-family:var(--lat); color:var(--muted); font-weight:700; font-size:.84rem}
+.block-sub{padding:0 18px; color:var(--muted); font-size:.86rem; margin:-2px 0 6px}
+
+/* THE FACING GRID — TR left / AR right, precise rows */
+.pair{display:grid; grid-template-columns:1fr 1fr; direction:ltr; position:relative}
+.pair::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:2px; transform:translateX(-1px);
+  background:linear-gradient(180deg,transparent,var(--line) 12%,var(--line) 88%,transparent); z-index:1}
+.cell{padding:14px 18px; min-width:0}
+.row-sep .cell{border-top:1px dashed var(--line)}
+.cell-tr{background:var(--tr-tint); direction:ltr; text-align:left; font-family:var(--lat)}
+.cell-ar{background:var(--ar-tint); direction:rtl; text-align:right; font-family:var(--ara)}
+
+/* side flag header */
+.flag{display:inline-flex; align-items:center; gap:6px; font-size:.7rem; font-weight:800; letter-spacing:.5px;
+  padding:3px 9px; border-radius:999px; margin-bottom:9px; text-transform:uppercase}
+.flag-tr{background:var(--tr-soft); color:var(--tr)}
+.flag-ar{background:var(--ar-soft); color:var(--ar); font-family:var(--ara); letter-spacing:0}
+.facttext{font-size:1.05rem; font-weight:600; color:var(--ink); margin:0}
+.cell-ar .facttext{font-weight:700}
+.kw{background:var(--kw-bg); color:var(--kw-fg); padding:0 5px; border-radius:6px; font-weight:800;
+  box-shadow:inset 0 -2px 0 var(--kw-line)}
+
+/* speak button */
+.spk{margin-top:9px; border:1px solid var(--tr); color:var(--tr); background:transparent; border-radius:10px;
+  padding:5px 11px; font-size:.82rem; font-weight:700; cursor:pointer; display:inline-flex; gap:6px; align-items:center;
+  font-family:var(--lat); transition:.16s}
+.spk:hover{background:var(--tr); color:#fff}
+.spk:active{transform:scale(.96)}
+.spk.playing{background:var(--tr); color:#fff; animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.7}}
+
+/* ===================== FLASHCARDS (key terms) ===================== */
+.terms{padding:6px 18px 16px}
+.term-grid{display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+.fcard{perspective:1100px; height:148px; cursor:pointer}
+.fcard-inner{position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.fcard.flipped .fcard-inner{transform:rotateY(180deg)}
+.fface{position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:15px;
+  border:1px solid var(--line); padding:13px 13px 11px; display:flex; flex-direction:column; box-shadow:var(--shadow-sm); overflow:hidden}
+.ffront{background:linear-gradient(165deg,color-mix(in srgb,var(--sc) 12%,var(--card)),var(--card)); align-items:flex-start}
+.fback{transform:rotateY(180deg); background:var(--gold-soft); border-color:var(--gold-line); direction:rtl; text-align:right}
+.fc-tag{font-family:var(--lat); font-size:.62rem; font-weight:800; letter-spacing:.6px; text-transform:uppercase;
+  color:var(--sc); background:color-mix(in srgb,var(--sc) 14%,transparent); padding:2px 8px; border-radius:999px}
+.fc-tag.ar{font-family:var(--ara); letter-spacing:0; color:var(--gold); background:color-mix(in srgb,var(--gold) 16%,transparent)}
+.fc-term{font-family:var(--lat); direction:ltr; text-align:left; font-weight:800; font-size:1.28rem; color:var(--ink);
+  line-height:1.2; margin-top:auto}
+.fc-mean{font-family:var(--ara); font-weight:700; font-size:1.04rem; color:var(--ink); line-height:1.5; margin-top:auto}
+.fc-row{display:flex; align-items:center; justify-content:space-between; width:100%; gap:8px}
+.fc-hint{font-size:.68rem; color:var(--muted); font-weight:700; display:flex; align-items:center; gap:4px}
+.fc-spk{border:1px solid var(--sc); color:var(--sc); background:transparent; border-radius:9px; padding:3px 9px;
+  font-size:.78rem; font-weight:800; cursor:pointer; display:inline-flex; gap:5px; align-items:center; font-family:var(--lat); transition:.16s; flex:none}
+.fc-spk:hover{background:var(--sc); color:#fff}
+.fc-spk.playing{background:var(--sc); color:#fff; animation:pulse 1s infinite}
+
+/* ===================== TIMELINE (childhood) ===================== */
+.timeline-wrap{padding:10px 18px 18px}
+.tl-top{display:grid; gap:10px; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); margin-bottom:18px}
+.tl-fact{border:1px solid var(--line); border-radius:14px; padding:11px 13px; background:color-mix(in srgb,var(--sc) 6%,var(--card)); text-align:center}
+.tl-fact .k{font-family:var(--lat); font-weight:800; font-size:1.18rem; color:var(--sc)}
+.tl-fact .v{font-size:.86rem; color:var(--muted); font-weight:700; margin-top:2px}
+.timeline{position:relative; display:grid; gap:12px; grid-template-columns:repeat(4,1fr)}
+.timeline::before{content:""; position:absolute; top:26px; left:4%; right:4%; height:4px; border-radius:99px;
+  background:linear-gradient(90deg,var(--c3),color-mix(in srgb,var(--c3) 40%,var(--gold))); opacity:.5; z-index:0}
+.tl-stage{position:relative; z-index:1; cursor:pointer; text-align:center; background:transparent; border:none; font-family:inherit; padding:0}
+.tl-node{width:54px; height:54px; margin:0 auto 9px; border-radius:50%; display:grid; place-items:center; font-size:1.5rem;
+  background:var(--card); border:3px solid var(--c3); box-shadow:var(--shadow-sm); transition:.2s}
+.tl-stage:hover .tl-node, .tl-stage.active .tl-node{transform:translateY(-3px) scale(1.06); background:var(--c3); border-color:var(--c3)}
+.tl-age{font-family:var(--lat); font-weight:800; font-size:.96rem; color:var(--c3)}
+.tl-care{font-family:var(--lat); font-weight:700; font-size:.92rem; color:var(--ink); margin-top:2px}
+.tl-rel{font-size:.84rem; color:var(--muted); font-weight:700}
+.tl-detail{margin-top:14px; border:1px solid var(--gold-line); background:var(--gold-soft); border-radius:14px;
+  padding:13px 15px; display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+.tl-detail .big{font-size:2rem; flex:none}
+.tl-detail .txt{flex:1; min-width:180px}
+.tl-detail .txt .a{font-weight:800; color:var(--ink)}
+.tl-detail .txt .b{font-family:var(--lat); color:var(--gold); font-weight:800; font-size:.9rem; direction:ltr}
+@media(max-width:680px){
+  .timeline{grid-template-columns:repeat(2,1fr); gap:18px}
+  .timeline::before{display:none}
+}
+
+/* ===================== QURAN / SURAH STRIP ===================== */
+.surah{margin:10px 18px 4px; border:1px solid var(--gold-line); background:linear-gradient(180deg,var(--gold-soft),transparent);
+  border-radius:16px; padding:14px 16px; text-align:center}
+.surah .ttl{font-weight:800; color:var(--gold); font-size:.9rem; margin-bottom:6px}
+.surah .ayah{font-family:var(--quran); font-size:1.5rem; color:var(--ink); line-height:2; direction:rtl}
+.surah .mean{color:var(--muted); font-size:.92rem; font-weight:700; margin-top:6px}
+
+/* ===================== QUIZ ===================== */
+.quiz{padding:14px 18px 18px; border-top:1px dashed var(--line); background:color-mix(in srgb,var(--sc) 4%,transparent)}
+.quiz-head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap}
+.quiz-head h4{margin:0; font-size:.98rem; display:flex; align-items:center; gap:8px; color:var(--sc)}
+.score{font-family:var(--lat); font-weight:800; font-size:.82rem; color:var(--muted); background:var(--card);
+  border:1px solid var(--line); border-radius:999px; padding:3px 11px}
+.score.full{color:#fff; background:var(--good); border-color:transparent}
+.qitem{border:1px solid var(--line); border-radius:15px; background:var(--card); padding:13px 15px; margin-bottom:11px; box-shadow:var(--shadow-sm)}
+.qitem.solved{box-shadow:0 0 0 1.5px var(--good)}
+.q-no{font-family:var(--lat); font-weight:800; color:var(--sc); font-size:.8rem}
+.q-tr{font-family:var(--lat); direction:ltr; text-align:left; font-weight:700; font-size:1.04rem; color:var(--ink); margin:3px 0 1px}
+.q-ar{color:var(--muted); font-weight:700; font-size:.9rem; margin-bottom:10px}
+.opts{display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.opt{display:flex; align-items:center; gap:9px; text-align:left; direction:ltr; font-family:var(--lat);
+  border:1.5px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px; padding:9px 12px;
+  font-size:.98rem; font-weight:600; cursor:pointer; transition:.15s}
+.opt:hover:not(:disabled){border-color:var(--sc); transform:translateY(-1px)}
+.opt .ltr{flex:none; width:24px; height:24px; border-radius:7px; display:grid; place-items:center; font-weight:800; font-size:.82rem;
+  background:color-mix(in srgb,var(--sc) 14%,transparent); color:var(--sc)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--good); background:color-mix(in srgb,var(--good) 14%,transparent); color:var(--good); font-weight:800}
+.opt.correct .ltr{background:var(--good); color:#fff}
+.opt.wrong{border-color:var(--bad); background:color-mix(in srgb,var(--bad) 12%,transparent); color:var(--bad); animation:shake .4s}
+.opt.wrong .ltr{background:var(--bad); color:#fff}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.q-why{display:none; margin-top:10px; padding:10px 12px; border-radius:11px; background:var(--ar-tint); border:1px dashed var(--ar)}
+.qitem.solved .q-why{display:block}
+.q-why .wt{font-family:var(--lat); direction:ltr; text-align:left; font-weight:700; color:var(--ink); font-size:.92rem}
+.q-why .wa{color:var(--muted); font-weight:700; font-size:.88rem; margin-top:2px}
+
+/* ===================== MATCHING GAME ===================== */
+.match{border-top:1px solid var(--line)}
+.match-toggle{width:100%; display:flex; align-items:center; gap:10px; background:color-mix(in srgb,var(--sc) 9%,transparent);
+  border:none; padding:12px 18px; cursor:pointer; font-family:var(--ara); font-weight:800; color:var(--sc); font-size:.96rem; transition:.15s}
+.match-toggle:hover{background:color-mix(in srgb,var(--sc) 16%,transparent)}
+.match-ttl{flex:1; text-align:start; display:flex; align-items:center; gap:8px}
+.match-ttl .lat{font-family:var(--lat); color:var(--muted); font-weight:700; font-size:.82rem}
+.chev{transition:transform .25s; font-size:.85rem}
+.match.open .chev{transform:rotate(180deg)}
+.match.open .match-toggle{border-bottom:1px solid var(--line)}
+.match-body{display:none; padding:14px 18px 18px}
+.match.open .match-body{display:block}
+.match-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 16px; direction:ltr; position:relative}
+.match-col{display:grid; gap:9px; align-content:start}
+.match-col .h{font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--muted); margin-bottom:2px}
+.mcol-tr .h{font-family:var(--lat)}
+.mcol-ar{direction:rtl; text-align:right}
+.mtok{border:1.5px solid var(--line); background:var(--card); border-radius:12px; padding:10px 13px; cursor:pointer;
+  font-weight:700; font-size:.98rem; transition:.15s; color:var(--ink); display:flex; align-items:center; gap:8px}
+.mcol-tr .mtok{font-family:var(--lat); direction:ltr; text-align:left}
+.mcol-ar .mtok{font-family:var(--ara); direction:rtl; text-align:right; justify-content:flex-end}
+.mtok:hover:not(.matched){border-color:var(--sc); transform:translateY(-1px)}
+.mtok.sel{border-color:var(--sc); background:color-mix(in srgb,var(--sc) 14%,transparent); box-shadow:0 0 0 2px color-mix(in srgb,var(--sc) 25%,transparent)}
+.mtok.matched{border-color:var(--good); background:color-mix(in srgb,var(--good) 13%,transparent); color:var(--good);
+  cursor:default; opacity:.85}
+.mtok.matched::after{content:"✓"; margin-inline-start:auto; font-weight:800}
+.mcol-ar .mtok.matched::after{margin-inline-start:0; margin-inline-end:auto}
+.mtok.wrong{animation:shake .4s; border-color:var(--bad)}
+.match-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; flex-wrap:wrap}
+.match-stat{font-weight:800; font-size:.9rem; color:var(--muted)}
+.match-stat b{color:var(--good)}
+.mini-btn{border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:10px; padding:6px 13px;
+  font-weight:800; font-size:.86rem; cursor:pointer; font-family:var(--ara); transition:.15s}
+.mini-btn:hover{border-color:var(--sc); color:var(--sc)}
+
+/* card footer */
+.card-foot{display:flex; justify-content:flex-end; gap:10px; padding:12px 18px; border-top:1px solid var(--line)}
+.learn-btn{border:1.5px solid var(--good); color:var(--good); background:transparent; border-radius:12px; padding:8px 16px;
+  font-weight:800; font-size:.9rem; cursor:pointer; display:inline-flex; gap:7px; align-items:center; transition:.18s; font-family:var(--ara)}
+.learn-btn:hover{background:color-mix(in srgb,var(--good) 12%,transparent)}
+.card.learned .learn-btn{background:var(--good); color:#fff; border-color:var(--good)}
+
+/* ===================== FOOTER ===================== */
+footer{text-align:center; padding:30px 22px 50px; color:var(--muted)}
+footer .big{font-size:1.3rem; font-weight:900; color:var(--ink)}
+footer .lat{color:var(--c1)}
+footer small{display:block; margin-top:8px; opacity:.85}
+
+/* toast */
+#toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(120px); z-index:200;
+  background:var(--ink); color:var(--card); padding:13px 22px; border-radius:14px; font-weight:800; box-shadow:var(--shadow);
+  transition:transform .4s cubic-bezier(.2,1.2,.3,1); max-width:90vw; text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+
+/* confetti */
+.confetti{position:fixed; top:-20px; z-index:300; font-size:20px; pointer-events:none; animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg); opacity:.2}}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:680px){
+  .cell{padding:12px 13px}
+  .card-top{padding:12px 13px}
+  .pills{order:3; width:100%}
+  .opts{grid-template-columns:1fr}
+}
+@media print{
+  .nav,.tools,.howto,.spk,.fc-spk,.card-foot,.progress-wrap,.match,.mini-btn{display:none !important}
+  body{background:#fff}
+  .fcard-inner{transform:none !important}
+  .fback{position:static; transform:none; margin-top:8px}
+  .ffront{position:static}
+  .fcard{height:auto}
+  .card{break-inside:avoid; box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="crown">🕌</div>
+  <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>الدين والأخلاق — دليل المذاكرة</h1>
+  <div class="tr-title lat">Din Kültürü ve Ahlak Bilgisi • Sınav Rehberi</div>
+  <p class="lead">رفيقك الذكي للاستعداد للامتحان: على <b class="r">اليمين</b> الشرح بالعربية لتفهم،
+  وعلى <b class="l">اليسار</b> النص التركي لتحفظ — متقابلان تمامًا.</p>
+</header>
+
+<div class="howto">
+  <div class="howto-inner">
+    <h3>🧭 كيف تذاكر بهذه الصفحة؟</h3>
+    <ul>
+      <li><span class="dot">١</span><span>اقرأ <b>الملخّص</b>: التركية على <b>اليسار</b>، والعربية على <b>اليمين</b> — متقابلان.</span></li>
+      <li><span class="dot">٢</span><span>احفظ <b>المفاهيم</b> من البطاقات (اضغط البطاقة لتقلبها وترى المعنى).</span></li>
+      <li><span class="dot">٣</span><span>اضغط <b>🔊</b> لتسمع النطق التركي الصحيح للكلمة.</span></li>
+      <li><span class="dot">٤</span><span>في قسم <b>الطفولة ⭐</b> ادرس <b>الخط الزمني</b> جيدًا — مهم جدًا.</span></li>
+      <li><span class="dot">٥</span><span>اختبر نفسك في <b>«اختبار قصير» 📝</b> أسفل كل قسم.</span></li>
+      <li><span class="dot">٦</span><span>العب <b>«لعبة المطابقة» 🎯</b> لتثبيت المفاهيم في ذهنك.</span></li>
+      <li><span class="dot">٧</span><span>اضغط <b>«حفظتُ هذا القسم ✓»</b> وراقب تقدّمك. الوضع الليلي 🌙 متاح.</span></li>
+    </ul>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <div class="brand">📿 <span>الدليل</span> <span class="lat">Rehber</span></div>
+    <div class="pills" id="pills"></div>
+    <div class="tools">
+      <button class="tbtn" id="testBtn" title="اقلب كل البطاقات للاختبار الذاتي">🧪</button>
+      <button class="tbtn" id="themeBtn" title="الوضع الليلي">🌙</button>
+      <button class="tbtn danger" id="resetBtn" title="إعادة ضبط التقدّم">↺</button>
+    </div>
+  </div>
+  <div class="progress-wrap">
+    <b id="progTxt" dir="ltr" style="font-variant-numeric:tabular-nums">0 / 6</b>
+    <div class="bar"><i id="progBar"></i></div>
+    <span class="lat" id="progPct" dir="ltr">0%</span>
+  </div>
+</nav>
+
+<main id="app"></main>
+
+<footer>
+  <div class="big">بالتوفيق يا بطل! <span class="lat">Başarılar! 🌟</span></div>
+  <small>افتح هذه الصفحة في أي وقت — تقدّمك محفوظ تلقائيًا على هذا الجهاز.</small>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   DATA  —  محتوى مادة الدين والأخلاق
+   - facts: جُمل متقابلة (تركي يسار / عربي يمين)
+   - [[كلمة]] داخل النص = تمييز مفهوم مهم
+   - terms: بطاقات المفاهيم (تُقلب)
+   - quiz: أسئلة اختيار من متعدد
+   - match: أزواج لعبة المطابقة
+============================================================ */
+const UNITS = [
+  {
+    id:"u1", no:"1", emoji:"🕊️", color:"var(--c1)", qCount:1,
+    titleTr:"Merhametli Olmak", titleAr:"الرحمة (التراحم)",
+    intro:"الرحمة قيمة عظيمة: حبٌّ وشفقة ومسامحة. ورحمة الله نوعان: في الدنيا للجميع، وفي الآخرة للمؤمنين.",
+    facts:[
+      {tr:"Merhamet; [[sevgi]], [[şefkat]] ve [[affetmek]] demektir.",
+       ar:"الرحمة تعني [[الحب]] و[[الشفقة]] و[[المسامحة]]."},
+      {tr:"Allah'ın dünyada herkese merhamet etmesine [[Rahman]], ahirette inananlara merhamet etmesine [[Rahîm]] denir.",
+       ar:"رحمة الله بجميع المخلوقات في الدنيا تسمى [[الرحمن]]، ورحمته بالمؤمنين في الآخرة تسمى [[الرحيم]]."},
+      {tr:"[[Kuş evleri]], kültürümüzde merhamete güzel bir örnektir.",
+       ar:"[[بيوت الطيور]] مثال جميل على الرحمة في ثقافتنا."},
+    ],
+    terms:[
+      {tr:"Merhamet", ar:"الرحمة — الحب والشفقة والمسامحة"},
+      {tr:"Rahman", ar:"الرحمن — رحمة الله بكل المخلوقات في الدنيا"},
+      {tr:"Rahîm", ar:"الرحيم — رحمة الله بالمؤمنين في الآخرة"},
+      {tr:"Şefkat", ar:"الشفقة — الحنان والعطف"},
+      {tr:"Kuş evleri", ar:"بيوت الطيور — مثال على الرحمة في ثقافتنا"},
+    ],
+    quiz:[
+      {q:{tr:"Allah'ın dünyada herkese merhamet etmesine ne denir?", ar:"ماذا تُسمّى رحمة الله بجميع المخلوقات في الدنيا؟"},
+       opts:["Rahman","Rahîm","Hanif","Müşrik"], a:0,
+       why:{tr:"Rahman: dünyada herkese. Rahîm: ahirette inananlara.", ar:"الرحمن: للجميع في الدنيا — الرحيم: للمؤمنين في الآخرة."}},
+    ],
+    match:[
+      {l:"Rahman", r:"رحمة الله بالجميع في الدنيا"},
+      {l:"Rahîm", r:"رحمة الله بالمؤمنين في الآخرة"},
+      {l:"Merhamet", r:"الحب والشفقة والمسامحة"},
+      {l:"Kuş evleri", r:"مثال على الرحمة في ثقافتنا"},
+    ],
+  },
+
+  {
+    id:"u2", no:"2", emoji:"🕋", color:"var(--c2)", qCount:1,
+    titleTr:"Hz. Muhammed'in Doğduğu Çevre", titleAr:"بيئة ولادة النبي ﷺ",
+    intro:"وُلد النبي ﷺ في مكة بمنطقة الحجاز، في زمنٍ سُمّي «العصر الجاهلي». تعرّف على ألقاب أهل ذلك الزمان.",
+    facts:[
+      {tr:"Peygamberimiz [[Hicaz]] bölgesinde, [[Mekke]]'de doğmuştur.",
+       ar:"وُلد نبيّنا ﷺ في [[مكة]] بمنطقة [[الحجاز]]."},
+      {tr:"İslam'dan önceki bu döneme, bilgisizlik ve putperestlikten dolayı [[Cahiliye Dönemi]] denir.",
+       ar:"تُسمّى فترة ما قبل الإسلام [[العصر الجاهلي]] بسبب الجهل وعبادة الأصنام."},
+      {tr:"Puta tapanlara [[Müşrik]]; Hz. İbrahim'in dinine (tek Allah) inananlara [[Hanif]] denir.",
+       ar:"عُبّاد الأصنام يُسمّون [[مشركين]]، ومن آمنوا بدين إبراهيم (إله واحد) يُسمّون [[حُنفاء]]."},
+      {tr:"Çölde yaşayan göçebelere [[Bedevi]], şehirde yaşayanlara [[Hadari]] denir.",
+       ar:"البدو في الصحراء يُسمّون [[Bedevi]]، وأهل المدن يُسمّون [[Hadari]]."},
+    ],
+    terms:[
+      {tr:"Mekke / Hicaz", ar:"مكة / الحجاز — مكان ولادة النبي ﷺ"},
+      {tr:"Cahiliye Dönemi", ar:"العصر الجاهلي — زمن الجهل وعبادة الأصنام"},
+      {tr:"Müşrik", ar:"مشرك — مَن يعبد الأصنام"},
+      {tr:"Hanif", ar:"حنيف — موحّد على دين إبراهيم (إله واحد)"},
+      {tr:"Bedevi", ar:"بدوي — يعيش في الصحراء (رُحّل)"},
+      {tr:"Hadari", ar:"حضري — يعيش في المدينة"},
+    ],
+    quiz:[
+      {q:{tr:"Putlara tapan kişilere ne ad verilir?", ar:"ماذا يُسمّى عُبّاد الأصنام؟"},
+       opts:["Hanif","Müşrik","Hadari","Bedevi"], a:1,
+       why:{tr:"Müşrik = puta tapan. Hanif = tek Allah'a inanan.", ar:"المشرك يعبد الأصنام، أما الحنيف فيؤمن بإله واحد."}},
+    ],
+    match:[
+      {l:"Müşrik", r:"مَن يعبد الأصنام"},
+      {l:"Hanif", r:"موحّد على دين إبراهيم"},
+      {l:"Bedevi", r:"يعيش في الصحراء"},
+      {l:"Hadari", r:"يعيش في المدينة"},
+      {l:"Cahiliye Dönemi", r:"زمن الجهل وعبادة الأصنام"},
+    ],
+  },
+
+  {
+    id:"u3", no:"3", emoji:"👶", color:"var(--c3)", qCount:3, important:true,
+    titleTr:"Hz. Muhammed'in Çocukluğu", titleAr:"طفولة النبي ﷺ",
+    intro:"⭐ أهمّ قسم (٣ أسئلة): وُلد عام ٥٧١م في مكة. احفظ جيدًا مَن رعاه في كل مرحلة من عمره عبر الخط الزمني.",
+    facts:[
+      {tr:"Peygamberimiz [[571]] yılında [[Mekke]]'de doğdu.",
+       ar:"وُلد النبي ﷺ عام [[571م]] في [[مكة]]."},
+      {tr:"Babası [[Abdullah]], annesi [[Âmine]], dedesi [[Abdülmuttalib]]'dir.",
+       ar:"والده [[عبد الله]]، وأمّه [[آمنة]]، وجدّه [[عبد المطلب]]."},
+    ],
+    timeline:{
+      birth:[ {k:"571", v:"سنة الميلاد (الميلادية)"}, {k:"Mekke", v:"مكان الولادة — مكة"} ],
+      stages:[
+        {age:"0–4 yaş", icon:"🐑", careTr:"Halime", rel:"المرضِعة حليمة", note:"عاش في الصحراء مع مرضِعته (السيدة حليمة السعدية).", say:"Sütannesi Halime"},
+        {age:"4–6 yaş", icon:"🤱", careTr:"Âmine", rel:"أمّه آمنة", note:"عاد ليعيش مع أمّه آمنة بنت وهب.", say:"Annesi Âmine"},
+        {age:"6–8 yaş", icon:"👴", careTr:"Abdülmuttalib", rel:"جدّه عبد المطلب", note:"بعد وفاة أمّه، كفله جدّه عبد المطلب.", say:"Dedesi Abdülmuttalib"},
+        {age:"8–25 yaş", icon:"🧔", careTr:"Ebu Talip", rel:"عمّه أبو طالب", note:"بعد وفاة جدّه، نشأ في كنف عمّه أبي طالب.", say:"Amcası Ebu Talip"},
+      ]
+    },
+    terms:[
+      {tr:"Abdullah", ar:"عبد الله — والد النبي ﷺ"},
+      {tr:"Âmine", ar:"آمنة — أمّ النبي ﷺ"},
+      {tr:"Abdülmuttalib", ar:"عبد المطلب — جدّ النبي ﷺ"},
+      {tr:"Halime", ar:"حليمة — مُرضِعة النبي ﷺ (0–4)"},
+      {tr:"Ebu Talip", ar:"أبو طالب — عمّ النبي ﷺ (8–25)"},
+    ],
+    quiz:[
+      {q:{tr:"Hz. Muhammed kaç yılında ve nerede doğdu?", ar:"في أي عام وأين وُلد النبي ﷺ؟"},
+       opts:["571 yılında Mekke'de","610 yılında Medine'de","571 yılında Medine'de","622 yılında Mekke'de"], a:0,
+       why:{tr:"571 yılında Mekke'de doğdu.", ar:"وُلد عام 571م في مكة."}},
+      {q:{tr:"Hz. Muhammed'in sütannesi kimdir?", ar:"مَن هي مُرضِعة النبي ﷺ؟"},
+       opts:["Âmine","Hatice","Halime","Fatma"], a:2,
+       why:{tr:"Sütannesi Halime'dir (0–4 yaş).", ar:"مُرضعته هي حليمة (من 0 إلى 4 سنوات)."}},
+      {q:{tr:"Hz. Muhammed 8–25 yaş arasında kimin yanında büyüdü?", ar:"في كنف مَن نشأ النبي ﷺ بين 8 و25 سنة؟"},
+       opts:["Dedesi Abdülmuttalib","Amcası Ebu Talip","Babası Abdullah","Sütannesi Halime"], a:1,
+       why:{tr:"8–25 yaş arası amcası Ebu Talip'in yanında büyüdü.", ar:"بين 8 و25 سنة نشأ في كنف عمّه أبي طالب."}},
+    ],
+    match:[
+      {l:"0–4 yaş", r:"المرضِعة حليمة (Halime)"},
+      {l:"4–6 yaş", r:"الأمّ آمنة (Âmine)"},
+      {l:"6–8 yaş", r:"الجدّ عبد المطلب"},
+      {l:"8–25 yaş", r:"العمّ أبو طالب (Ebu Talip)"},
+    ],
+  },
+
+  {
+    id:"u4", no:"4", emoji:"🤝", color:"var(--c4)", qCount:2,
+    titleTr:"Hz. Muhammed'in Gençliği", titleAr:"شباب النبي ﷺ",
+    intro:"عُرف النبي ﷺ في شبابه بالصدق والأمانة، فلقّبه أهل مكة بـ«الأمين»، ونصر المظلومين، وأقام العدل.",
+    facts:[
+      {tr:"Dürüst ve güvenilir olduğu için Mekkeliler ona [[el-Emin]] (Muhammedülemin) lakabını verdi.",
+       ar:"لصدقه وأمانته، لقّبه أهل مكة بـ [[الأمين]] (الصادق الأمين)."},
+      {tr:"Haksızlığa uğrayanlara yardım için [[Hilfülfudul]] grubuna katıldı.",
+       ar:"شارك في حلف [[الفُضول]] لمساعدة المظلومين."},
+      {tr:"Kâbe onarılırken [[Hacerülesved]] hakemliği yaparak adaleti sağladı, kavgayı önledi.",
+       ar:"أقام العدل ومنع النزاع حين كان حَكَمًا في وضع [[الحجر الأسود]] أثناء إعمار الكعبة."},
+      {tr:"Dürüstlüğü sayesinde [[Hz. Hatice]] ile evlendi ve altı çocuğu oldu.",
+       ar:"بفضل أمانته تزوّج [[السيدة خديجة]] ورُزق منها ستة أطفال."},
+    ],
+    terms:[
+      {tr:"el-Emin", ar:"الأمين — لقبه ﷺ لصدقه وأمانته"},
+      {tr:"Hilfülfudul", ar:"حلف الفضول — تحالف لنصرة المظلوم"},
+      {tr:"Hacerülesved", ar:"الحجر الأسود — حَكَم في وضعه ومنع النزاع"},
+      {tr:"Hz. Hatice", ar:"السيدة خديجة — زوجته ﷺ"},
+    ],
+    quiz:[
+      {q:{tr:"Mekkeliler, dürüstlüğünden dolayı Hz. Muhammed'e hangi lakabı vermiştir?", ar:"بأي لقب لقّب أهلُ مكة النبيَّ ﷺ لأمانته؟"},
+       opts:["Hanif","el-Emin","Hadari","Bedevi"], a:1,
+       why:{tr:"el-Emin = güvenilir/dürüst kişi.", ar:"الأمين = الصادق الموثوق."}},
+      {q:{tr:"Haksızlığa uğrayanlara yardım için kurulan topluluğun adı nedir?", ar:"ما اسم التحالف الذي قام لنصرة المظلومين؟"},
+       opts:["Hilfülfudul","Hacerülesved","Cahiliye","Mevlit"], a:0,
+       why:{tr:"Hilfülfudul, mazlumlara yardım için kuruldu.", ar:"حلف الفضول أُسّس لمساعدة المظلومين."}},
+    ],
+    match:[
+      {l:"el-Emin", r:"الأمين الصادق"},
+      {l:"Hilfülfudul", r:"حلف لنصرة المظلوم"},
+      {l:"Hacerülesved", r:"الحجر الأسود"},
+      {l:"Hz. Hatice", r:"زوجته السيدة خديجة"},
+    ],
+  },
+
+  {
+    id:"u5", no:"5", emoji:"🐘", color:"var(--c5)", qCount:1,
+    titleTr:"Fil Suresi", titleAr:"سورة الفيل",
+    intro:"حاول أبرهة هدم الكعبة بجيش من الفِيَلة، فأهلكه الله بطير الأبابيل وحجارة من سجّيل. تُعرف بـ«واقعة الفيل».",
+    surah:{ ayah:"أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ", mean:"«ألم ترَ كيف فعل ربُّك بأصحاب الفيل» — مطلع سورة الفيل" },
+    facts:[
+      {tr:"Yemen valisi [[Ebrehe]], Kâbe'yi yıkmak için fillerden oluşan bir orduyla geldi.",
+       ar:"جاء حاكم اليمن [[أبرهة]] بجيشٍ من الفِيَلة لهدم الكعبة."},
+      {tr:"Allah, [[Ebâbîl]] kuşları ve [[Siccîl]] taşları ile Ebrehe'nin ordusunu yendi.",
+       ar:"أهلكهم الله بطير [[الأبابيل]] وحجارةٍ من [[سجّيل]]."},
+      {tr:"Bu olaya [[Fil Vakası]] denir.",
+       ar:"تُعرف هذه الحادثة بـ [[واقعة الفيل]]."},
+    ],
+    terms:[
+      {tr:"Ebrehe", ar:"أبرهة — حاكم اليمن الذي أراد هدم الكعبة"},
+      {tr:"Ebâbîl", ar:"الأبابيل — الطيور التي أرسلها الله"},
+      {tr:"Siccîl", ar:"سجّيل — الحجارة التي رُمي بها الجيش"},
+      {tr:"Fil Vakası", ar:"واقعة الفيل — اسم هذه الحادثة"},
+    ],
+    quiz:[
+      {q:{tr:"Allah, Ebrehe'nin ordusunu ne ile helak etti?", ar:"بماذا أهلك اللهُ جيشَ أبرهة؟"},
+       opts:["Deprem ile","Ebâbîl kuşları ve Siccîl taşları ile","Sel ve fırtına ile","Ateş ile"], a:1,
+       why:{tr:"Ebâbîl kuşları, Siccîl taşları attı.", ar:"طير الأبابيل رمتهم بحجارة من سجّيل."}},
+    ],
+    match:[
+      {l:"Ebrehe", r:"حاكم اليمن (أراد هدم الكعبة)"},
+      {l:"Ebâbîl", r:"الطيور التي أرسلها الله"},
+      {l:"Siccîl", r:"حجارة رُمي بها الجيش"},
+      {l:"Fil Vakası", r:"اسم الحادثة"},
+    ],
+  },
+
+  {
+    id:"u6", no:"6", emoji:"📿", color:"var(--c6)", qCount:2,
+    titleTr:"Kültürümüzde Dinin İzleri", titleAr:"آثار الدين في ثقافتنا",
+    intro:"للدين أثرٌ في تقاليدنا (الأذان للمولود، حجر الصدقة، دفتر الذمم) وفي أدبنا (التوحيد، المناجاة، النعت، المولد).",
+    groups:[
+      { lbl:{tr:"Geleneklerimiz", ar:"التقاليد"}, facts:[
+        {tr:"Yeni doğan bebeğin sağ kulağına [[Ezan]], sol kulağına [[Kamet]] okunur.",
+         ar:"يُقرأ [[الأذان]] في الأذن اليمنى للمولود، و[[الإقامة]] في الأذن اليسرى."},
+        {tr:"İncitmeden gizlice yardım için [[Sadaka Taşı]] kullanılır.",
+         ar:"يُستخدم [[حجر الصدقة]] لتقديم المساعدة سرًّا دون إحراج."},
+        {tr:"Bakkal borçlarını gizlice ödemek için [[Zimem Defteri]] kullanılır.",
+         ar:"ويُستخدم [[دفتر الذمم]] لتسديد ديون الناس في البقالة سرًّا."},
+      ]},
+      { lbl:{tr:"Edebiyatımız", ar:"الأدب"}, facts:[
+        {tr:"[[Tevhit]], Allah'ın varlığını ve birliğini anlatır.",
+         ar:"[[التوحيد]] يتحدث عن وجود الله ووحدانيته."},
+        {tr:"[[Münacat]], Allah'a yalvarmak ve dua etmektir.",
+         ar:"[[المناجاة]] هي الدعاء والتضرّع إلى الله."},
+        {tr:"[[Naat]], Peygamberimizi övmektir.",
+         ar:"[[النعت]] هو قصائد مدح النبي ﷺ."},
+        {tr:"[[Mevlit]], Peygamberimizin doğumunu ve hayatını anlatır.",
+         ar:"[[المولد]] يروي ولادة النبي ﷺ وحياته."},
+      ]},
+    ],
+    terms:[
+      {tr:"Ezan / Kamet", ar:"الأذان / الإقامة — يُقرآن في أذني المولود"},
+      {tr:"Sadaka Taşı", ar:"حجر الصدقة — مساعدة الفقراء سرًّا"},
+      {tr:"Zimem Defteri", ar:"دفتر الذمم — سداد ديون الناس سرًّا"},
+      {tr:"Tevhit", ar:"التوحيد — وجود الله ووحدانيته"},
+      {tr:"Münacat", ar:"المناجاة — الدعاء والتضرّع لله"},
+      {tr:"Naat", ar:"النعت — مدح النبي ﷺ"},
+      {tr:"Mevlit", ar:"المولد — ولادة النبي ﷺ وحياته"},
+    ],
+    quiz:[
+      {q:{tr:"Peygamberimizi övmek için yazılan şiirlere ne denir?", ar:"ماذا تُسمّى القصائد المكتوبة لمدح النبي ﷺ؟"},
+       opts:["Tevhit","Münacat","Naat","Mevlit"], a:2,
+       why:{tr:"Naat = peygamber övgüsü.", ar:"النعت = مدح النبي ﷺ."}},
+      {q:{tr:"İnsanları incitmeden gizlice yardım etmek için kullanılan taş nedir?", ar:"ما الحجر المُستخدم لمساعدة الناس سرًّا دون إحراج؟"},
+       opts:["Sadaka Taşı","Hacerülesved","Zimem Defteri","Siccîl"], a:0,
+       why:{tr:"Sadaka Taşı, gizli yardım içindir.", ar:"حجر الصدقة للمساعدة الخفيّة."}},
+    ],
+    match:[
+      {l:"Tevhit", r:"وجود الله ووحدانيته"},
+      {l:"Münacat", r:"الدعاء والتضرّع لله"},
+      {l:"Naat", r:"مدح النبي ﷺ"},
+      {l:"Mevlit", r:"ولادة النبي ﷺ وحياته"},
+      {l:"Sadaka Taşı", r:"مساعدة الفقراء سرًّا"},
+      {l:"Zimem Defteri", r:"سداد ديون الناس سرًّا"},
+    ],
+  },
+];
+
+const TOTAL = UNITS.length;
+const LETTERS = ["A","B","C","D","E"];
+
+/* ============================================================
+   HELPERS
+============================================================ */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// escape, then turn [[x]] into a highlighted keyword span
+const kw = s => esc(s).replace(/\[\[(.+?)\]\]/g, '<span class="kw">$1</span>');
+// strip [[ ]] for plain (TTS) text
+const plain = s => String(s).replace(/\[\[|\]\]/g, "");
+
+/* render one facing block of facts (TR left / AR right) */
+function factsHTML(facts){
+  let rows = "";
+  facts.forEach((f,i)=>{
+    const sep = i>0 ? "row-sep" : "";
+    rows += `
+      <div class="cell cell-tr ${sep}">
+        ${i===0?`<span class="flag flag-tr">◆ Türkçe — التركية</span>`:""}
+        <p class="facttext">${kw(f.tr)}</p>
+        <button class="spk" data-text="${esc(plain(f.tr))}">🔊 Dinle</button>
+      </div>
+      <div class="cell cell-ar ${sep}">
+        ${i===0?`<span class="flag flag-ar">◆ العربية — الشرح</span>`:""}
+        <p class="facttext">${kw(f.ar)}</p>
+      </div>`;
+  });
+  return `<div class="pair">${rows}</div>`;
+}
+
+/* flashcards (key terms) */
+function termsHTML(u){
+  const cards = u.terms.map(t=>`
+    <div class="fcard" data-flip>
+      <div class="fcard-inner">
+        <div class="fface ffront">
+          <div class="fc-row"><span class="fc-tag">Kavram • مفهوم</span>
+            <button class="fc-spk" data-text="${esc(plain(t.tr))}" title="استمع">🔊</button></div>
+          <div class="fc-term">${esc(t.tr)}</div>
+          <div class="fc-hint">↻ اضغط لرؤية المعنى</div>
+        </div>
+        <div class="fface fback">
+          <div class="fc-row"><span class="fc-tag ar">المعنى</span></div>
+          <div class="fc-mean">${esc(t.ar)}</div>
+        </div>
+      </div>
+    </div>`).join("");
+  return `
+    <div class="block-lbl">🔑 المفاهيم الأساسية <span class="lat">Anahtar Kavramlar</span></div>
+    <div class="block-sub">اضغط على البطاقة لتقلبها وترى المعنى — واضغط 🔊 لسماع النطق التركي.</div>
+    <div class="terms"><div class="term-grid">${cards}</div></div>`;
+}
+
+/* timeline (unit 3) */
+function timelineHTML(tl){
+  const tops = tl.birth.map(b=>`<div class="tl-fact"><div class="k lat">${esc(b.k)}</div><div class="v">${esc(b.v)}</div></div>`).join("");
+  const stages = tl.stages.map((s,i)=>`
+    <button class="tl-stage" data-stage="${i}" ${i===0?'data-default':''}>
+      <div class="tl-node">${s.icon}</div>
+      <div class="tl-age">${esc(s.age)}</div>
+      <div class="tl-care lat">${esc(s.careTr)}</div>
+      <div class="tl-rel">${esc(s.rel)}</div>
+    </button>`).join("");
+  return `
+    <div class="block-lbl">🧭 الخط الزمني لطفولته ﷺ <span class="lat">Hayat Çizgisi</span></div>
+    <div class="block-sub">مَن رعى النبي ﷺ في كل مرحلة؟ اضغط على أي مرحلة لرؤية التفاصيل (مهمّ جدًا للامتحان).</div>
+    <div class="timeline-wrap">
+      <div class="tl-top">${tops}</div>
+      <div class="timeline">${stages}</div>
+      <div class="tl-detail" data-tl-detail></div>
+    </div>`;
+}
+
+/* surah strip (unit 5) */
+function surahHTML(s){
+  return `<div class="surah"><div class="ttl">📖 من القرآن الكريم</div>
+    <div class="ayah">${esc(s.ayah)}</div><div class="mean">${esc(s.mean)}</div></div>`;
+}
+
+/* quiz */
+function quizHTML(u){
+  const items = u.quiz.map((q,qi)=>{
+    const opts = q.opts.map((o,oi)=>`
+      <button class="opt" data-opt data-qi="${qi}" data-oi="${oi}" data-correct="${oi===q.a?1:0}">
+        <span class="ltr">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("");
+    return `
+      <div class="qitem" data-qitem="${qi}">
+        <div class="q-no">Soru ${qi+1} • سؤال ${qi+1}</div>
+        <div class="q-tr">${esc(q.q.tr)}</div>
+        <div class="q-ar">${esc(q.q.ar)}</div>
+        <div class="opts">${opts}</div>
+        <div class="q-why"><div class="wt">💡 ${esc(q.why.tr)}</div><div class="wa">${esc(q.why.ar)}</div></div>
+      </div>`;
+  }).join("");
+  return `
+    <div class="quiz" data-quiz="${u.id}">
+      <div class="quiz-head">
+        <h4>📝 اختبار قصير — Mini Test</h4>
+        <span class="score" data-score>0 / ${u.quiz.length}</span>
+      </div>
+      ${items}
+    </div>`;
+}
+
+/* matching game */
+function matchHTML(u){
+  return `
+    <div class="match">
+      <button class="match-toggle">
+        <span class="match-ttl">🎯 لعبة المطابقة <span class="lat">Eşleştirme Oyunu</span></span>
+        <span class="chev">▾</span>
+      </button>
+      <div class="match-body" data-match="${u.id}"></div>
+    </div>`;
+}
+
+/* ============================================================
+   RENDER
+============================================================ */
+const app = document.getElementById("app");
+const pills = document.getElementById("pills");
+
+UNITS.forEach(u=>{
+  // nav pill
+  const a = document.createElement("a");
+  a.className="pill"; a.href="#"+u.id; a.dataset.target=u.id;
+  a.innerHTML = `<span class="n">${u.no}</span> ${esc(u.titleAr)}`;
+  pills.appendChild(a);
+
+  // section
+  const sc = document.createElement("section");
+  sc.className="section"; sc.id=u.id; sc.style.setProperty("--sc", u.color);
+
+  // facts (grouped or flat)
+  let factsBlock = "";
+  if(u.groups){
+    factsBlock = u.groups.map(g=>`
+      <div class="block-lbl">📌 ${esc(g.lbl.ar)} <span class="lat">${esc(g.lbl.tr)}</span></div>
+      ${factsHTML(g.facts)}`).join("");
+  } else {
+    factsBlock = `<div class="block-lbl">📋 الملخّص <span class="lat">Özet</span></div>${factsHTML(u.facts)}`;
+  }
+
+  const impBadge = u.important ? `<span class="star-imp">⭐ مهمّ جدًا</span>` : "";
+
+  sc.innerHTML = `
+    <div class="sec-head">
+      <div class="sec-emoji">${u.emoji}</div>
+      <div>
+        <div class="sec-num">القسم ${u.no} • Ünite ${u.no} <span class="q-badge">؟ × ${u.qCount}</span> ${impBadge}</div>
+        <h2>${esc(u.titleAr)} <span class="lat">${esc(u.titleTr)}</span></h2>
+      </div>
+    </div>
+    <p class="sec-intro">${esc(u.intro)}</p>
+    <article class="card" data-id="${u.id}">
+      <div class="card-top">
+        <span class="badge-n lat">${u.no}</span>
+        <div class="card-titles">
+          <span class="tt">${esc(u.titleTr)}</span>
+          <span class="ta">${esc(u.titleAr)}</span>
+        </div>
+        <span class="learned-flag">✓ تم الحفظ</span>
+      </div>
+      ${u.surah ? surahHTML(u.surah) : ""}
+      ${factsBlock}
+      ${u.timeline ? timelineHTML(u.timeline) : ""}
+      ${termsHTML(u)}
+      ${quizHTML(u)}
+      ${u.match && u.match.length>=3 ? matchHTML(u) : ""}
+      <div class="card-foot">
+        <button class="learn-btn" data-learn="${u.id}"><span class="bx">☐</span> حفظتُ هذا القسم</button>
+      </div>
+    </article>`;
+  app.appendChild(sc);
+
+  // fill the timeline default detail
+  if(u.timeline){
+    const det = sc.querySelector("[data-tl-detail]");
+    setStageDetail(det, u.timeline.stages[0]);
+    sc.querySelector('.tl-stage[data-default]').classList.add("active");
+  }
+});
+
+/* timeline detail filler */
+function setStageDetail(el, s){
+  el.innerHTML = `<div class="big">${s.icon}</div>
+    <div class="txt"><div class="a">${esc(s.age)} — ${esc(s.rel)}</div>
+    <div>${esc(s.note)}</div>
+    <div class="b">${esc(s.careTr)}</div></div>
+    <button class="spk" data-text="${esc(s.say)}" style="margin:0">🔊 Dinle</button>`;
+}
+
+/* ============================================================
+   MATCHING GAME  (built lazily per unit)
+============================================================ */
+const matchState = {};   // id -> {pairs, sel, done}
+function shuffle(a){ // deterministic-ish shuffle without Math.random/Date (index mixing)
+  const arr = a.slice();
+  for(let i=arr.length-1;i>0;i--){
+    const j = (i*7 + 3) % (i+1);
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+function buildMatch(u){
+  const box = document.querySelector(`[data-match="${u.id}"]`);
+  if(!box) return;
+  const pairs = u.match.map((p,i)=>({id:i, l:p.l, r:p.r}));
+  matchState[u.id] = {pairs, selL:null, selR:null, done:0, salt:(matchState[u.id]?matchState[u.id].salt+1:0)};
+  const st = matchState[u.id];
+  const left = shuffle(pairs.map(p=>({id:p.id, t:p.l})));
+  // rotate right order differently so columns don't line up
+  let right = shuffle(pairs.map(p=>({id:p.id, t:p.r})));
+  right = right.slice(st.salt % right.length).concat(right.slice(0, st.salt % right.length));
+  const lcol = left.map(x=>`<button class="mtok" data-side="L" data-pid="${x.id}">${esc(x.t)}</button>`).join("");
+  const rcol = right.map(x=>`<button class="mtok" data-side="R" data-pid="${x.id}">${esc(x.t)}</button>`).join("");
+  box.innerHTML = `
+    <div class="block-sub" style="padding:0 0 8px">اضغط مفهومًا تركيًا من اليسار ثم معناه العربي من اليمين. الصحيح يُقفل باللون الأخضر ✓.</div>
+    <div class="match-grid">
+      <div class="match-col mcol-tr"><div class="h">Türkçe</div>${lcol}</div>
+      <div class="match-col mcol-ar"><div class="h">العربية</div>${rcol}</div>
+    </div>
+    <div class="match-foot">
+      <span class="match-stat"><b data-mdone>0</b> / ${pairs.length} مطابقة</span>
+      <button class="mini-btn" data-mreset>🔀 إعادة الخلط</button>
+    </div>`;
+}
+function matchClick(tok){
+  const box = tok.closest("[data-match]");
+  const id = box.dataset.match;
+  const st = matchState[id];
+  if(!st || tok.classList.contains("matched")) return;
+  const side = tok.dataset.side;
+  const selKey = side==="L" ? "selL" : "selR";
+  // toggle selection within its column
+  box.querySelectorAll(`.mtok[data-side="${side}"]`).forEach(t=>{ if(t!==tok) t.classList.remove("sel"); });
+  tok.classList.toggle("sel");
+  st[selKey] = tok.classList.contains("sel") ? tok : null;
+
+  if(st.selL && st.selR){
+    const L=st.selL, R=st.selR;
+    if(L.dataset.pid === R.dataset.pid){
+      L.classList.add("matched"); R.classList.add("matched");
+      L.classList.remove("sel"); R.classList.remove("sel");
+      st.selL=st.selR=null; st.done++;
+      box.querySelector("[data-mdone]").textContent = st.done;
+      if(st.done === st.pairs.length){ toast("🎉 أحسنت! طابقتَ كل المفاهيم"); smallCelebrate(box); }
+    } else {
+      L.classList.add("wrong"); R.classList.add("wrong");
+      const a=L,b=R; st.selL=st.selR=null;
+      setTimeout(()=>{ a.classList.remove("wrong","sel"); b.classList.remove("wrong","sel"); }, 420);
+    }
+  }
+}
+
+/* ============================================================
+   STATE  (localStorage)
+============================================================ */
+const KEY = "din_ahlak_v1";
+let state = {};
+try{ state = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ state = {}; }
+state.learned = state.learned || {};
+const save = () => { try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} };
+
+function refreshProgress(){
+  const done = Object.values(state.learned).filter(Boolean).length;
+  document.getElementById("progTxt").textContent = `${done} / ${TOTAL}`;
+  const pct = Math.round(done/TOTAL*100);
+  document.getElementById("progBar").style.width = pct+"%";
+  document.getElementById("progPct").textContent = pct+"%";
+}
+function applyLearned(){
+  document.querySelectorAll(".card").forEach(c=>{
+    const on = !!state.learned[c.dataset.id];
+    c.classList.toggle("learned", on);
+    const bx = c.querySelector(".bx"); if(bx) bx.textContent = on ? "✓" : "☐";
+  });
+  refreshProgress();
+}
+
+/* ============================================================
+   SPEECH (Türkçe)
+============================================================ */
+let trVoice = null;
+function loadVoices(){
+  const vs = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  trVoice = vs.find(v=>/tr[-_]?TR/i.test(v.lang)) || vs.find(v=>/^tr\b/i.test(v.lang)) || null;
+}
+if(window.speechSynthesis){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function speak(text, btn){
+  if(!window.speechSynthesis){ toast("النطق غير مدعوم في هذا المتصفح"); return; }
+  speechSynthesis.cancel();
+  document.querySelectorAll(".spk.playing,.fc-spk.playing").forEach(b=>b.classList.remove("playing"));
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = "tr-TR"; u.rate = .85; u.pitch = 1;
+  if(trVoice) u.voice = trVoice;
+  if(btn){ btn.classList.add("playing"); u.onend = u.onerror = ()=>btn.classList.remove("playing"); }
+  speechSynthesis.speak(u);
+}
+
+/* ============================================================
+   EVENTS (delegated)
+============================================================ */
+document.addEventListener("click", e=>{
+  // speak (term mini-button) — handle before flip
+  const fs = e.target.closest(".fc-spk");
+  if(fs){ e.stopPropagation(); speak(fs.dataset.text, fs); return; }
+
+  // speak (general)
+  const sp = e.target.closest(".spk[data-text]");
+  if(sp){ speak(sp.dataset.text, sp); return; }
+
+  // flip flashcard
+  const fc = e.target.closest("[data-flip]");
+  if(fc){ fc.classList.toggle("flipped"); return; }
+
+  // timeline stage
+  const stg = e.target.closest(".tl-stage");
+  if(stg){
+    const tl = UNITS.find(x=>x.timeline && document.getElementById(x.id).contains(stg));
+    const wrap = stg.closest(".timeline-wrap");
+    wrap.querySelectorAll(".tl-stage").forEach(s=>s.classList.remove("active"));
+    stg.classList.add("active");
+    setStageDetail(wrap.querySelector("[data-tl-detail]"), tl.timeline.stages[+stg.dataset.stage]);
+    return;
+  }
+
+  // quiz option
+  const opt = e.target.closest(".opt");
+  if(opt && !opt.disabled){
+    handleQuiz(opt); return;
+  }
+
+  // matching toggle (lazy build)
+  const mt = e.target.closest(".match-toggle");
+  if(mt){
+    const m = mt.closest(".match"); m.classList.toggle("open");
+    const id = m.querySelector("[data-match]").dataset.match;
+    if(m.classList.contains("open") && !matchState[id]) buildMatch(UNITS.find(x=>x.id===id));
+    return;
+  }
+  // matching reset
+  const mr = e.target.closest("[data-mreset]");
+  if(mr){ const id = mr.closest("[data-match]").dataset.match; buildMatch(UNITS.find(x=>x.id===id)); return; }
+  // matching token
+  const tok = e.target.closest(".mtok");
+  if(tok){ matchClick(tok); return; }
+
+  // learn toggle
+  const lb = e.target.closest("[data-learn]");
+  if(lb){
+    const id = lb.dataset.learn;
+    state.learned[id] = !state.learned[id];
+    save(); applyLearned();
+    if(state.learned[id]) toast("أحسنت! 🌟 حفظتَ هذا القسم");
+    if(Object.values(state.learned).filter(Boolean).length===TOTAL) celebrate();
+    return;
+  }
+});
+
+/* quiz handling */
+function handleQuiz(opt){
+  const item = opt.closest(".qitem");
+  if(item.classList.contains("solved")) return;
+  const correct = opt.dataset.correct==="1";
+  if(correct){
+    opt.classList.add("correct");
+    item.classList.add("solved");
+    item.querySelectorAll(".opt").forEach(o=>o.disabled=true);
+    // mark the right one if user hadn't (it's this one) + reveal others' correct
+    updateScore(opt.closest(".quiz"));
+    toast("✅ إجابة صحيحة!");
+  } else {
+    opt.classList.add("wrong"); opt.disabled = true; // stays red so the child sees the eliminated choice
+  }
+}
+function updateScore(quiz){
+  const total = quiz.querySelectorAll(".qitem").length;
+  const solved = quiz.querySelectorAll(".qitem.solved").length;
+  const badge = quiz.querySelector("[data-score]");
+  badge.textContent = `${solved} / ${total}`;
+  badge.classList.toggle("full", solved===total);
+  if(solved===total) toast("🏆 ممتاز! أكملتَ اختبار هذا القسم");
+}
+
+/* nav active state (scroll-spy) */
+const pillEls = [...document.querySelectorAll(".pill")];
+const io = new IntersectionObserver(es=>{
+  es.forEach(en=>{
+    if(en.isIntersecting){
+      pillEls.forEach(p=>p.classList.toggle("active", p.dataset.target===en.target.id));
+    }
+  });
+},{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll(".section").forEach(s=>io.observe(s));
+
+/* test button — flip all cards to Turkish front for self-testing */
+const testBtn = document.getElementById("testBtn");
+testBtn.onclick = ()=>{
+  document.querySelectorAll(".fcard.flipped").forEach(c=>c.classList.remove("flipped"));
+  testBtn.classList.add("on"); setTimeout(()=>testBtn.classList.remove("on"), 600);
+  toast("🧪 حاول تذكّر معنى كل بطاقة بالعربية، ثم اقلبها للتحقق");
+};
+
+/* theme */
+const themeBtn = document.getElementById("themeBtn");
+function applyTheme(){
+  const dark = state.theme==="dark";
+  document.body.classList.toggle("dark", dark);
+  themeBtn.textContent = dark ? "☀️" : "🌙";
+}
+themeBtn.onclick = ()=>{ state.theme = state.theme==="dark" ? "light":"dark"; save(); applyTheme(); };
+
+/* reset */
+document.getElementById("resetBtn").onclick = ()=>{
+  if(confirm("هل تريد مسح كل علامات «حفظتُ» والبدء من جديد؟")){
+    state.learned = {}; save(); applyLearned(); toast("تمت إعادة الضبط ✨");
+  }
+};
+
+/* toast */
+let toT;
+function toast(msg){
+  const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show");
+  clearTimeout(toT); toT=setTimeout(()=>t.classList.remove("show"),1900);
+}
+
+/* celebrate (full) */
+function celebrate(){
+  toast("🎉 رائع! أنهيتَ كل الأقسام — أنت جاهز للامتحان بإذن الله!");
+  const emo=["🎉","⭐","🎊","🥳","✨","🏆","💫","📿"];
+  for(let i=0;i<40;i++){
+    const s=document.createElement("span");
+    s.className="confetti"; s.textContent=emo[i%emo.length];
+    s.style.left=(i*2.5+((i*37)%6))+"%";
+    s.style.animationDuration=(2.4+(i%5)*.45)+"s";
+    s.style.animationDelay=((i%9)*.12)+"s";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),6000);
+  }
+}
+/* celebrate (small, near an element) */
+function smallCelebrate(){
+  const emo=["⭐","✨","🎉","💫"];
+  for(let i=0;i<14;i++){
+    const s=document.createElement("span");
+    s.className="confetti"; s.textContent=emo[i%emo.length];
+    s.style.left=(20+i*4)+"%";
+    s.style.animationDuration=(2+(i%4)*.4)+"s";
+    s.style.animationDelay=((i%6)*.1)+"s";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),5000);
+  }
+}
+
+/* init */
+applyTheme();
+applyLearned();
+</script>
+</body>
+</html>
