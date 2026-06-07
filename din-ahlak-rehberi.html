@@ -213,12 +213,23 @@ main{max-width:1140px; margin:0 auto; padding:10px 22px 40px}
   .timeline::before{display:none}
 }
 
-/* ===================== QURAN / SURAH STRIP ===================== */
-.surah{margin:10px 18px 4px; border:1px solid var(--gold-line); background:linear-gradient(180deg,var(--gold-soft),transparent);
-  border-radius:16px; padding:14px 16px; text-align:center}
-.surah .ttl{font-weight:800; color:var(--gold); font-size:.9rem; margin-bottom:6px}
-.surah .ayah{font-family:var(--quran); font-size:1.5rem; color:var(--ink); line-height:2; direction:rtl}
-.surah .mean{color:var(--muted); font-size:.92rem; font-weight:700; margin-top:6px}
+/* ===================== QURAN / FULL SURAH ===================== */
+.surah{margin:10px 18px 8px; border:1px solid var(--gold-line); border-radius:18px; overflow:hidden;
+  background:linear-gradient(180deg,var(--gold-soft),transparent 78%)}
+.surah-head{text-align:center; padding:14px 16px 4px}
+.surah-name{font-family:var(--quran); font-size:1.65rem; font-weight:700; color:var(--gold); line-height:1.3}
+.surah-name .lat{font-family:var(--lat); font-size:.9rem; color:var(--muted); font-weight:700}
+.surah-meta{font-size:.78rem; color:var(--muted); font-weight:700; margin-top:3px}
+.surah-basmala{font-family:var(--quran); font-size:1.4rem; color:var(--ink); text-align:center; padding:8px 16px 6px; direction:rtl}
+.surah-full{font-family:var(--quran); font-size:1.78rem; line-height:2.7; color:var(--ink); text-align:center; direction:rtl;
+  padding:8px 20px 18px}
+.ayah-no{display:inline-grid; place-items:center; width:1.7em; height:1.7em; margin:0 .25em; vertical-align:.12em; flex:none;
+  font-family:var(--ara); font-size:.8rem; font-weight:800; color:var(--gold); background:var(--gold-soft);
+  border:1.5px solid var(--gold-line); border-radius:50%; box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--gold) 12%,transparent)}
+.cell-ayah{background:var(--ar-tint); direction:rtl; text-align:right; display:flex; gap:10px; align-items:flex-start}
+.ayah-q{font-family:var(--quran); font-size:1.55rem; line-height:2.1; color:var(--ink)}
+.okunus{font-family:var(--lat); font-style:italic; color:var(--muted); font-weight:600; font-size:.92rem; margin-bottom:4px}
+.meal{font-family:var(--lat); direction:ltr; text-align:left; font-weight:700; color:var(--ink); font-size:1.04rem}
 
 /* ===================== QUIZ ===================== */
 .quiz{padding:14px 18px 18px; border-top:1px dashed var(--line); background:color-mix(in srgb,var(--sc) 4%,transparent)}
@@ -541,7 +552,28 @@ const UNITS = [
     id:"u5", no:"5", emoji:"🐘", color:"var(--c5)", qCount:1,
     titleTr:"Fil Suresi", titleAr:"سورة الفيل",
     intro:"حاول أبرهة هدم الكعبة بجيش من الفِيَلة، فأهلكه الله بطير الأبابيل وحجارة من سجّيل. تُعرف بـ«واقعة الفيل».",
-    surah:{ ayah:"أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ", mean:"«ألم ترَ كيف فعل ربُّك بأصحاب الفيل» — مطلع سورة الفيل" },
+    surah:{
+      name:"Fîl Sûresi", nameAr:"سُورَةُ الفِيل",
+      meta:"رقم ١٠٥ • سورة مكّية • ٥ آيات — Mekke döneminde inmiştir, 5 âyettir.",
+      basmala:"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      ayahs:[
+        {n:1, ar:"أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ",
+         okunus:"Elem tera keyfe feale Rabbüke bi-ashâbi'l-fîl.",
+         meal:"Rabbinin, fil sahiplerine ne yaptığını görmedin mi?"},
+        {n:2, ar:"أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ",
+         okunus:"Elem yec'al keydehüm fî tadlîl.",
+         meal:"Onların kötü planlarını boşa çıkarmadı mı?"},
+        {n:3, ar:"وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ",
+         okunus:"Ve ersele aleyhim tayran ebâbîl.",
+         meal:"Üzerlerine sürü sürü kuşlar (Ebabil) gönderdi."},
+        {n:4, ar:"تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ",
+         okunus:"Termîhim bi-hicâratin min siccîl.",
+         meal:"(Bu kuşlar) onlara pişmiş çamurdan (siccil) taşlar atıyordu."},
+        {n:5, ar:"فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍ",
+         okunus:"Fece'alehüm ke'asfin me'kûl.",
+         meal:"Böylece onları yenilmiş ekin yaprağı gibi yaptı."},
+      ]
+    },
     facts:[
       {tr:"Yemen valisi [[Ebrehe]], Kâbe'yi yıkmak için fillerden oluşan bir orduyla geldi.",
        ar:"جاء حاكم اليمن [[أبرهة]] بجيشٍ من الفِيَلة لهدم الكعبة."},
@@ -695,10 +727,38 @@ function timelineHTML(tl){
     </div>`;
 }
 
-/* surah strip (unit 5) */
-function surahHTML(s){
-  return `<div class="surah"><div class="ttl">📖 من القرآن الكريم</div>
-    <div class="ayah">${esc(s.ayah)}</div><div class="mean">${esc(s.mean)}</div></div>`;
+/* full surah (unit 5) — complete text + ayah-by-ayah okunuş & meal */
+const AR_DIG = "٠١٢٣٤٥٦٧٨٩";
+const toArabicNum = n => String(n).replace(/\d/g, d=>AR_DIG[+d]);
+function surahFullHTML(s){
+  const flow = s.ayahs.map(a=>`${esc(a.ar)} <span class="ayah-no">${toArabicNum(a.n)}</span>`).join(" ");
+  let rows = "";
+  s.ayahs.forEach((a,i)=>{
+    const sep = i>0 ? "row-sep" : "";
+    rows += `
+      <div class="cell cell-tr ${sep}">
+        ${i===0?`<span class="flag flag-tr">◆ Okunuş &amp; Anlam — النطق والمعنى</span>`:""}
+        <div class="okunus">${esc(a.okunus)}</div>
+        <div class="meal">${esc(a.meal)}</div>
+        <button class="spk" data-text="${esc(a.okunus)}">🔊 Dinle</button>
+      </div>
+      <div class="cell cell-ayah ${sep}">
+        <span class="ayah-no">${toArabicNum(a.n)}</span>
+        <span class="ayah-q">${esc(a.ar)}</span>
+      </div>`;
+  });
+  return `
+    <div class="surah">
+      <div class="surah-head">
+        <div class="surah-name">${esc(s.nameAr)} <span class="lat">• ${esc(s.name)}</span></div>
+        <div class="surah-meta">${esc(s.meta)}</div>
+      </div>
+      <div class="surah-basmala">${esc(s.basmala)}</div>
+      <div class="surah-full">${flow}</div>
+    </div>
+    <div class="block-lbl">📖 آية بآية <span class="lat">Âyet âyet — Okunuş &amp; Anlam</span></div>
+    <div class="block-sub">على اليسار النطق التركي والمعنى (للحفظ)، وعلى اليمين الآية الكريمة. اضغط 🔊 لسماع النطق.</div>
+    <div class="pair">${rows}</div>`;
 }
 
 /* quiz */
@@ -785,7 +845,7 @@ UNITS.forEach(u=>{
         </div>
         <span class="learned-flag">✓ تم الحفظ</span>
       </div>
-      ${u.surah ? surahHTML(u.surah) : ""}
+      ${u.surah ? surahFullHTML(u.surah) : ""}
       ${factsBlock}
       ${u.timeline ? timelineHTML(u.timeline) : ""}
       ${termsHTML(u)}
