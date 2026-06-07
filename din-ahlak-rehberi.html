@@ -296,6 +296,36 @@ main{max-width:1140px; margin:0 auto; padding:10px 22px 40px}
   font-weight:800; font-size:.86rem; cursor:pointer; font-family:var(--ara); transition:.15s}
 .mini-btn:hover{border-color:var(--sc); color:var(--sc)}
 
+/* ===================== FINAL REVIEW EXAM ===================== */
+.exam-card{border-color:var(--gold-line)}
+.exam-bar{display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding:14px 18px;
+  background:linear-gradient(180deg,var(--gold-soft),transparent); border-bottom:1px solid var(--line)}
+.exam-bar-l{font-weight:800; font-size:.96rem}
+.exam-bar-l b{font-family:var(--lat)} .exam-bar-l b.ok{color:var(--good)}
+.exam-mini-bar{flex:1; min-width:150px; height:11px; background:var(--line); border-radius:99px; overflow:hidden; position:relative}
+.exam-mini-bar i{position:absolute; inset:0 auto 0 0; width:0%; border-radius:99px;
+  background:linear-gradient(90deg,var(--gold),var(--c3)); transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.exam-questions{padding:14px 18px 4px}
+.eq{margin-bottom:12px}
+.eq .q-no{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.eq-topic{color:var(--gold); font-family:var(--ara); font-weight:800; background:var(--gold-soft);
+  border-radius:999px; padding:1px 9px; font-size:.72rem}
+.eq.locked .opt:not(.correct):not(.wrong){opacity:.5}
+.exam-results{margin:4px 18px 16px; border:2px solid var(--gold-line); border-radius:18px; padding:20px 18px; text-align:center;
+  background:var(--gold-soft); animation:popIn .45s cubic-bezier(.2,1.3,.4,1)}
+@keyframes popIn{from{transform:scale(.92); opacity:0}to{transform:scale(1); opacity:1}}
+.exam-results.great{border-color:var(--good); background:color-mix(in srgb,var(--good) 13%,var(--card))}
+.exam-results.low{border-color:var(--bad); background:color-mix(in srgb,var(--bad) 10%,var(--card))}
+.er-emoji{font-size:3.1rem; line-height:1}
+.er-score{font-family:var(--lat); font-weight:900; font-size:2.5rem; color:var(--ink); margin-top:6px; line-height:1}
+.er-pct{font-family:var(--lat); font-weight:800; font-size:1.1rem; color:var(--gold)}
+.er-grade{font-weight:800; font-size:1.12rem; color:var(--ink); margin:10px 0 2px}
+.weak-areas{margin:12px auto 2px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; align-items:center; max-width:520px}
+.wa-lbl{width:100%; font-weight:800; color:var(--muted); font-size:.9rem; margin-bottom:2px}
+.weak-chip{background:var(--card); border:1px solid var(--gold-line); border-radius:999px; padding:5px 12px; font-weight:800; font-size:.9rem}
+.weak-areas.all-correct{color:var(--good); font-weight:800; font-size:1.05rem}
+.er-retry{margin-top:16px; font-size:.95rem; padding:9px 18px}
+
 /* card footer */
 .card-foot{display:flex; justify-content:flex-end; gap:10px; padding:12px 18px; border-top:1px solid var(--line)}
 .learn-btn{border:1.5px solid var(--good); color:var(--good); background:transparent; border-radius:12px; padding:8px 16px;
@@ -653,6 +683,57 @@ const UNITS = [
   },
 ];
 
+/* ============================================================
+   FINAL REVIEW EXAM  —  أسئلة شاملة لكل الأقسام (مع وحدة كل سؤال)
+============================================================ */
+const FINAL_EXAM = [
+  {u:"u1", q:{tr:"Allah'ın ahirette sadece inananlara merhamet etmesine ne denir?", ar:"ماذا تُسمّى رحمة الله بالمؤمنين خاصّةً في الآخرة؟"},
+   opts:["Rahman","Şefkat","Rahîm","Hanif"], a:2,
+   why:{tr:"Rahîm: ahirette inananlara. Rahman: dünyada herkese.", ar:"الرحيم للمؤمنين في الآخرة، والرحمن للجميع في الدنيا."}},
+  {u:"u1", q:{tr:"Merhamet; sevgi, şefkat ve affetmek demektir.", ar:"الرحمة تعني الحب والشفقة والمسامحة. (صح / خطأ)"},
+   opts:["Doğru ✓","Yanlış ✗"], a:0,
+   why:{tr:"Doğru. Merhamet = sevgi + şefkat + affetmek.", ar:"صحيح: الرحمة = الحب + الشفقة + المسامحة."}},
+  {u:"u2", q:{tr:"Hz. Muhammed hangi şehirde doğmuştur?", ar:"في أي مدينة وُلد النبي ﷺ؟"},
+   opts:["Medine","Mekke","Taif","Kudüs"], a:1,
+   why:{tr:"Hicaz bölgesinde, Mekke'de doğdu.", ar:"وُلد في مكة بمنطقة الحجاز."}},
+  {u:"u2", q:{tr:"Çölde yaşayan göçebelere ne ad verilir?", ar:"ماذا يُسمّى البدو الرُّحّل في الصحراء؟"},
+   opts:["Hadari","Hanif","Bedevi","Müşrik"], a:2,
+   why:{tr:"Bedevi: çölde yaşayan. Hadari: şehirde yaşayan.", ar:"البدوي ساكن الصحراء، والحضري ساكن المدينة."}},
+  {u:"u3", q:{tr:"Hz. Muhammed kaç yılında doğdu?", ar:"في أي عام وُلد النبي ﷺ؟"},
+   opts:["610","571","622","630"], a:1,
+   why:{tr:"571 yılında Mekke'de doğdu.", ar:"وُلد عام 571م في مكة."}},
+  {u:"u3", q:{tr:"0–4 yaş arasında Hz. Muhammed kimin yanında kaldı?", ar:"مع مَن عاش النبي ﷺ من 0 إلى 4 سنوات؟"},
+   opts:["Annesi Âmine","Sütannesi Halime","Dedesi Abdülmuttalib","Amcası Ebu Talip"], a:1,
+   why:{tr:"0–4 yaş: sütannesi Halime'nin yanında çölde.", ar:"من 0 إلى 4: المرضِعة حليمة في الصحراء."}},
+  {u:"u3", q:{tr:"Hz. Muhammed'in babasının adı nedir?", ar:"ما اسم والد النبي ﷺ؟"},
+   opts:["Abdülmuttalib","Ebu Talip","Abdullah","Hamza"], a:2,
+   why:{tr:"Babası Abdullah, annesi Âmine.", ar:"والده عبد الله، وأمّه آمنة."}},
+  {u:"u3", q:{tr:"8–25 yaş arasında kimin yanında büyüdü?", ar:"في كنف مَن نشأ بين 8 و25 سنة؟"},
+   opts:["Amcası Ebu Talip","Dedesi Abdülmuttalib","Sütannesi Halime","Annesi Âmine"], a:0,
+   why:{tr:"8–25 yaş: amcası Ebu Talip.", ar:"من 8 إلى 25: العمّ أبو طالب."}},
+  {u:"u4", q:{tr:"Mekkeliler dürüstlüğünden dolayı Hz. Muhammed'e hangi lakabı verdi?", ar:"بأي لقب لقّبه أهل مكة لأمانته؟"},
+   opts:["el-Emin","Bedevi","Hanif","Hadari"], a:0,
+   why:{tr:"el-Emin: güvenilir, dürüst kişi.", ar:"الأمين: الصادق الموثوق."}},
+  {u:"u4", q:{tr:"Hz. Muhammed kiminle evlenmiştir?", ar:"بمن تزوّج النبي ﷺ؟"},
+   opts:["Hz. Âmine","Hz. Hatice","Hz. Halime","Hz. Fatma"], a:1,
+   why:{tr:"Hz. Hatice ile evlendi.", ar:"تزوّج السيدة خديجة."}},
+  {u:"u5", q:{tr:"Kâbe'yi yıkmak isteyen Yemen valisinin adı nedir?", ar:"ما اسم حاكم اليمن الذي أراد هدم الكعبة؟"},
+   opts:["Ebu Talip","Ebrehe","Ebu Leheb","Ebabil"], a:1,
+   why:{tr:"Yemen valisi Ebrehe.", ar:"حاكم اليمن أبرهة."}},
+  {u:"u5", q:{tr:"Allah, Ebrehe'nin ordusuna hangi kuşları gönderdi?", ar:"ما الطيور التي أرسلها الله على جيش أبرهة؟"},
+   opts:["Ebâbîl","Hüdhüd","Karga","Güvercin"], a:0,
+   why:{tr:"Ebâbîl kuşları, Siccîl taşları attı.", ar:"طير الأبابيل برمي حجارة من سجّيل."}},
+  {u:"u5", q:{tr:"Fil Suresi kaç ayetten oluşur?", ar:"كم آيةً في سورة الفيل؟"},
+   opts:["3","7","5","10"], a:2,
+   why:{tr:"Fil Suresi 5 ayettir.", ar:"سورة الفيل خمس آيات."}},
+  {u:"u6", q:{tr:"Peygamberimizi övmek için yazılan şiirlere ne denir?", ar:"ماذا تُسمّى قصائد مدح النبي ﷺ؟"},
+   opts:["Tevhit","Münacat","Naat","Mevlit"], a:2,
+   why:{tr:"Naat: peygamber övgüsü.", ar:"النعت: مدح النبي ﷺ."}},
+  {u:"u6", q:{tr:"Borçları gizlice ödemek için kullanılan deftere ne denir?", ar:"ما اسم الدفتر المُستخدم لسداد الديون سرًّا؟"},
+   opts:["Zimem Defteri","Sadaka Taşı","Sicil","Tevhit"], a:0,
+   why:{tr:"Zimem Defteri: gizli borç ödeme.", ar:"دفتر الذمم لسداد الديون سرًّا."}},
+];
+
 const TOTAL = UNITS.length;
 const LETTERS = ["A","B","C","D","E"];
 
@@ -865,6 +946,134 @@ UNITS.forEach(u=>{
   }
 });
 
+/* ============================================================
+   FINAL REVIEW EXAM  —  render + behaviour
+============================================================ */
+const examState = { answered:0, correct:0, wrongUnits:{} };
+
+function examHTML(){
+  const items = FINAL_EXAM.map((q,qi)=>{
+    const u = UNITS.find(x=>x.id===q.u);
+    const opts = q.opts.map((o,oi)=>`
+      <button class="opt" data-eopt data-qi="${qi}" data-oi="${oi}" data-correct="${oi===q.a?1:0}">
+        <span class="ltr">${LETTERS[oi]}</span><span>${esc(o)}</span></button>`).join("");
+    return `
+      <div class="qitem eq" data-eq="${qi}" data-unit="${q.u}">
+        <div class="q-no">Soru ${qi+1} / ${FINAL_EXAM.length} <span class="eq-topic">${u.emoji} ${esc(u.titleAr)}</span></div>
+        <div class="q-tr">${esc(q.q.tr)}</div>
+        <div class="q-ar">${esc(q.q.ar)}</div>
+        <div class="opts">${opts}</div>
+        <div class="q-why"><div class="wt">💡 ${esc(q.why.tr)}</div><div class="wa">${esc(q.why.ar)}</div></div>
+      </div>`;
+  }).join("");
+  return `
+    <article class="card exam-card" style="--sc:var(--gold)">
+      <div class="exam-bar">
+        <div class="exam-bar-l">📊 <b data-eanswered>0</b> / ${FINAL_EXAM.length} مُجاب • <b class="ok" data-ecorrect>0</b> صحيحة</div>
+        <div class="exam-mini-bar"><i data-ebar></i></div>
+      </div>
+      <div class="exam-questions">${items}</div>
+      <div class="exam-results" data-eresults hidden></div>
+      <div class="card-foot">
+        <button class="mini-btn" data-ereset>🔄 إعادة الاختبار — Tekrar dene</button>
+      </div>
+    </article>`;
+}
+
+/* build the exam section + nav pill (runs during initial render, before scroll-spy setup) */
+(function buildExam(){
+  const pill = document.createElement("a");
+  pill.className="pill"; pill.href="#exam"; pill.dataset.target="exam";
+  pill.innerHTML = `<span class="n">🏆</span> المراجعة`;
+  pills.appendChild(pill);
+
+  const sec = document.createElement("section");
+  sec.className="section"; sec.id="exam"; sec.style.setProperty("--sc","var(--gold)");
+  sec.innerHTML = `
+    <div class="sec-head">
+      <div class="sec-emoji">🏆</div>
+      <div>
+        <div class="sec-num">المراجعة النهائية • Genel Tekrar</div>
+        <h2>اختبار المراجعة الشامل <span class="lat">Genel Tekrar Testi</span></h2>
+      </div>
+    </div>
+    <p class="sec-intro">${FINAL_EXAM.length} سؤالًا تغطّي الأقسام الستّة كلّها. أجب بصدق دون النظر — يُقفل كل سؤال بعد إجابتك وتظهر الإجابة الصحيحة، ثم تظهر نتيجتك مع الأقسام التي تحتاج مراجعتها.</p>
+    ${examHTML()}`;
+  app.appendChild(sec);
+})();
+
+function updateExamBar(){
+  const sec = document.getElementById("exam");
+  sec.querySelector("[data-eanswered]").textContent = examState.answered;
+  sec.querySelector("[data-ecorrect]").textContent = examState.correct;
+  sec.querySelector("[data-ebar]").style.width = Math.round(examState.answered/FINAL_EXAM.length*100)+"%";
+}
+
+function handleExam(opt){
+  const item = opt.closest(".eq");
+  if(item.classList.contains("locked")) return;
+  item.classList.add("locked","solved");           // solved -> reveal explanation
+  const isCorrect = opt.dataset.correct==="1";
+  item.querySelectorAll(".opt").forEach(o=>{
+    o.disabled = true;
+    if(o.dataset.correct==="1") o.classList.add("correct");   // always show the right answer
+  });
+  if(isCorrect){ examState.correct++; }
+  else{
+    opt.classList.add("wrong");
+    const u = item.dataset.unit; examState.wrongUnits[u] = (examState.wrongUnits[u]||0)+1;
+  }
+  examState.answered++;
+  updateExamBar();
+  if(examState.answered === FINAL_EXAM.length) showExamResults();
+}
+
+function showExamResults(){
+  const sec = document.getElementById("exam");
+  const total = FINAL_EXAM.length, correct = examState.correct;
+  const pct = Math.round(correct/total*100);
+  let grade, emoji, cls;
+  if(pct>=90){ grade="ممتاز! أنت جاهز للامتحان بإذن الله"; emoji="🏆"; cls="great"; }
+  else if(pct>=70){ grade="جيد جدًا! راجع القليل وستُتقن"; emoji="🌟"; cls="good"; }
+  else if(pct>=50){ grade="جيد — ركّز على مراجعة الأقسام أدناه"; emoji="📚"; cls="ok"; }
+  else { grade="لا بأس — راجع الدرس جيدًا ثم أعِد الاختبار"; emoji="💪"; cls="low"; }
+  const weak = Object.keys(examState.wrongUnits);
+  let weakHTML;
+  if(weak.length){
+    const chips = weak.map(uid=>{ const u=UNITS.find(x=>x.id===uid);
+      return `<a class="weak-chip" href="#${uid}">${u.emoji} ${esc(u.titleAr)}</a>`; }).join("");
+    weakHTML = `<div class="weak-areas"><div class="wa-lbl">📌 ركّز على مراجعة هذه الأقسام:</div>${chips}</div>`;
+  } else {
+    weakHTML = `<div class="weak-areas all-correct">🎉 أجبتَ عن كل الأسئلة بشكل صحيح — ما شاء الله!</div>`;
+  }
+  const panel = sec.querySelector("[data-eresults]");
+  panel.className = "exam-results "+cls;
+  panel.innerHTML = `
+    <div class="er-emoji">${emoji}</div>
+    <div class="er-score" dir="ltr">${correct} / ${total}</div>
+    <div class="er-pct" dir="ltr">${pct}%</div>
+    <div class="er-grade">${grade}</div>
+    ${weakHTML}
+    <button class="mini-btn er-retry" data-ereset>🔄 إعادة الاختبار — Tekrar dene</button>`;
+  panel.hidden = false;
+  panel.scrollIntoView({behavior:"smooth", block:"center"});
+  if(pct>=90) celebrate();
+  else toast(`نتيجتك: ${correct} / ${total} (${pct}%)`);
+}
+
+function resetExam(){
+  examState.answered=0; examState.correct=0; examState.wrongUnits={};
+  const sec = document.getElementById("exam");
+  sec.querySelectorAll(".eq").forEach(item=>{
+    item.classList.remove("locked","solved");
+    item.querySelectorAll(".opt").forEach(o=>{ o.disabled=false; o.classList.remove("correct","wrong"); });
+  });
+  sec.querySelector("[data-eresults]").hidden = true;
+  updateExamBar();
+  sec.scrollIntoView({behavior:"smooth", block:"start"});
+  toast("🔄 بدأ اختبار جديد — بالتوفيق!");
+}
+
 /* timeline detail filler */
 function setStageDetail(el, s){
   el.innerHTML = `<div class="big">${s.icon}</div>
@@ -1009,7 +1218,14 @@ document.addEventListener("click", e=>{
     return;
   }
 
-  // quiz option
+  // FINAL EXAM option (first-attempt lock) — must run BEFORE the generic .opt handler
+  const eopt = e.target.closest("[data-eopt]");
+  if(eopt){ if(!eopt.disabled) handleExam(eopt); return; }
+  // exam reset / retry
+  const ereset = e.target.closest("[data-ereset]");
+  if(ereset){ resetExam(); return; }
+
+  // quiz option (per-section practice — keep trying)
   const opt = e.target.closest(".opt");
   if(opt && !opt.disabled){
     handleQuiz(opt); return;
